@@ -9,7 +9,7 @@ namespace ServerlessBlog
     {
         private static readonly string[] PreapprovedAuthors =
         {
-            "WL6PsrWcW7zvG0a4otXTAIiBUMUpDT5U@clients"
+            "I9vuXQT5bh2O7x6O8hgJDPdCXblwb5p8@clients"
         };
         
         public Task<bool> IsAuthorized(

@@ -16,7 +16,7 @@ namespace ServerlessBlog
 {
     public class FunctionAppConfiguration : IFunctionAppConfiguration
     {
-        public const string Domain = "functionmonkey.eu.auth0.com";
+        public const string Domain = "monkeydemo.au.auth0.com";
         public const string Audience = "http://serverlessblog";
         
         public void Build(IFunctionHostBuilder builder)
@@ -58,6 +58,14 @@ namespace ServerlessBlog
                             "/{postId}",
                             AuthorizationTypeEnum.Anonymous,
                             HttpMethod.Get)
+
+                        .HttpFunction<GetHelloWorldQuery>(
+                            "/",
+                            AuthorizationTypeEnum.Anonymous,
+                            HttpMethod.Get)
+
+                        .HttpFunction<UpdatePostCommand>(AuthorizationTypeEnum.Anonymous, HttpMethod.Put)
+
                     )
                 );
         }

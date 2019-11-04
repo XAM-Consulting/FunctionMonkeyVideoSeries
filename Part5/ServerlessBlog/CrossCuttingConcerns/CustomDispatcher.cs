@@ -77,8 +77,8 @@ namespace ServerlessBlog.CrossCuttingConcerns
         {
             string json = JsonConvert.SerializeObject(command);
             Guid commandId = Guid.NewGuid();
-            CloudBlockBlob blob = _blobContainer.GetBlockBlobReference($"{commandId}.json");
-            await blob.UploadTextAsync(json);
+            //CloudBlockBlob blob = _blobContainer.GetBlockBlobReference($"{commandId}.json");
+            //await blob.UploadTextAsync(json);
             
             _logger.LogInformation("Executing command {commandType} with ID {commandId}",
                 command.GetType().Name,
