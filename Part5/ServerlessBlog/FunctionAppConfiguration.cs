@@ -44,6 +44,10 @@ namespace ServerlessBlog
                             ClaimTypes.NameIdentifier,
                             cmd => cmd.UserId
                         )
+                        .MapClaimToCommandProperty<UpdatePostCommand>(
+                            ClaimTypes.NameIdentifier,
+                            cmd => cmd.UserId
+                        )
                     )
                 )
                 .AddFluentValidation()
@@ -64,8 +68,8 @@ namespace ServerlessBlog
                             AuthorizationTypeEnum.Anonymous,
                             HttpMethod.Get)
 
-                        .HttpFunction<UpdatePostCommand>(AuthorizationTypeEnum.Anonymous, HttpMethod.Put)
-
+                        .HttpFunction<UpdatePostCommand>(HttpMethod.Put)
+                        .Options(options => options.ClaimsPrincipalAuthorization<IsApprovedAuthorClaimsAuthorization>())
                     )
                 );
         }

@@ -16,6 +16,7 @@ namespace ServerlessBlog.Application
                 .AddSingleton<IPostRepository, PostRepository>()
                 .AddTransient<IValidator<AddPostCommand>, AddPostCommandValidator>()
                 .AddTransient<IValidator<GetPostQuery>, GetPostQueryValidator>()
+                .AddTransient<IValidator<UpdatePostCommand>, UpdatePostCommandValidator>()
                 ;
 
             commandRegistry.Discover(typeof(SubsystemRegistration).Assembly);
