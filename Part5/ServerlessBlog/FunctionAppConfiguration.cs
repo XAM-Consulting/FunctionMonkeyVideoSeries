@@ -50,6 +50,11 @@ namespace ServerlessBlog
                         )
                     )
                 )
+                .OpenApiEndpoint(openApi => openApi
+                    .Title("Serverless Blog")
+                    .Version("0.0.1")
+                    .UserInterface()
+                )
                 .AddFluentValidation()
                 .DefaultHttpResponseHandler<HttpResponseHandler>()
                 .Functions(functions => functions
